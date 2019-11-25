@@ -1,0 +1,20 @@
+opam-version: "2.0"
+name: "read_config"
+version: "0.1"
+synopsis: "Read environment variables"
+description: """
+simple env variables parser
+"""
+maintainer: "selasie hanson <soundfever18@gmail.com>"
+authors: "selasie hanson <soundfever18@gmail.com>"
+license: "MIT"
+build: [
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "ocaml" {>= "4.07.0"}
+  "dune" {build}
+  "core"
+  "alcotest"
+]

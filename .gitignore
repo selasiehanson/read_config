@@ -1,0 +1,6 @@
+.env
+.DS_Store
+_build
+_public
+.merlin
+*.install
