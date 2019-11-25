@@ -1,7 +1,8 @@
 let set_and_retrieve () =
-  Config.read_and_place ".env";
+  Config.read_and_place "../../../.env";
   Alcotest.(check string) "Check HOST" "localhost" (Config.var ~key:"HOST");
   Alcotest.(check string) "Check DB_URL" "localhost:5463" (Config.var ~key:"DB_URL");
+  Alcotest.(check string) "Check STRING_KEY" "HELLO" (Config.var ~key:"STRING_KEY");
 ;;
 
 let test_set =  [

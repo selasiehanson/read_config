@@ -6,9 +6,31 @@ open Stdio
 
 (* we should probably keep a map to keep things in memory *)
 
+let strip_quotes str =
+  let strip_front_quote s =
+    let process = match  s with
+    | '"' :: v ->v
+    | _  -> s
+    in
+    process |> String.of_char_list
+  in
+
+  let a = str |> String.to_list |> strip_front_quote in
+  let a = String.to_list_rev a in
+  a |>  strip_front_quote |> String.to_list_rev |> String.of_char_list
+
+
+
+
 let parse_line line =
   match String.split line ~on: '=' with
-  | k :: v :: _ -> Some (k, v)
+  | k :: v ->
+      let value = String.concat (v @ [] ) in
+      let value = strip_quotes value in
+
+      let str = (">>>>>key = " ^ k ^ (" value =" ^ value)) in
+      print_endline  str;
+      Some (k, value)
   | _ -> None
 
 
