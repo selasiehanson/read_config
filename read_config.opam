@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "read_config"
-version: "0.1"
+version: "0.0.1"
 synopsis: "Read environment variables"
 description: """
 simple env variables parser

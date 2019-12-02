@@ -22,31 +22,14 @@ let strip_quotes str =
 
 
 let parse_line line =
-  print_endline ("line is "  ^ line);
   match String.index line '=' with
   | Some index ->
       let length = String.length line in
       let k = String.drop_suffix line (length - index) in
       let v = String.drop_prefix line (index + 1) in
-      (* let value = String.concat (v @ [] ) in *)
       let value = strip_quotes v in
-
-      let str = (">>>>>key = " ^ k ^ (" value =" ^ value)) in
-      print_endline  str;
       Some (k, value)
   | _ -> None
-
-
-(* let parse_line line = *)
-(*   match String.split line ~on: '=' with *)
-(*   | k :: _  as v -> *)
-(*       let value = String.concat (v @ [] ) in *)
-(*       let value = strip_quotes value in *)
-
-(*       let str = (">>>>>key = " ^ k ^ (" value =" ^ value)) in *)
-(*       print_endline  str; *)
-(*       Some (k, value) *)
-(*   | _ -> None *)
 
 
 let place_env  ~key ~value =
