@@ -1,5 +1,5 @@
 (library
-  (name config)
+  ; (name config)
   (public_name read_config)
   (libraries core )
 )
